@@ -49,7 +49,7 @@ I don't smoke either, but I believe the world will be a better place if those wh
 
 See you on the pull requests tab,
 
-**Leonardo Pires** 
+**Leonardo Pires**, 
 *CTO of [WeedSeeker.net][0]*
 
 
