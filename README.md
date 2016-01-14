@@ -14,7 +14,7 @@ The patient types a strain name (the variety of marijuana, for those not initiat
 
 ## What do we want with a GitHub repository?
 
-We have a staging site, at [http://alpha.weedseeker.net][1]. The goal of this repository is to create [Selenium WebDriver](2) tests, written in [C#][3], using [NUnit 3][4] and [Visual Studio 2015 Community Edition][5] (which is FREE, but if you have the full version, it's up to you to use it) to excercise our website.
+We have a staging site, at [http://alpha.weedseeker.net][1]. The goal of this repository is to create [Selenium WebDriver][2] tests, written in [C#][3], using [NUnit 3][4] and [Visual Studio 2015 Community Edition][5] (which is FREE, but if you have the full version, it's up to you to use it) to excercise our website.
 
 All the tests here and the tests you agree to send here must be licensed with the [MIT License][6]. If this is your trial assignment, please keep on reading this.
 
@@ -40,7 +40,7 @@ Please do it. If we see the quality of your work improved, you'll be considered 
 
 ## But I want to be a developer. Why is my trial an automated test?
 
-In WeedSeeker, there's no such thing as a tester who doesn't write code or a programmer who doesn't write test. Everyone is a Software Engineer, and everyone MUST know how to test one's own code.
+In [WeedSeeker][0], there's no such thing as a tester who doesn't write code or a programmer who doesn't write test. Everyone is a Software Engineer, and everyone MUST know how to test one's own code.
 
 ## But I don't smoke weed, should I apply anyway?
 
@@ -49,9 +49,8 @@ I don't smoke either, but I believe the world will be a better place if those wh
 
 See you on the pull requests tab,
 
-**Leonardo Pires**
-
-*CTO of WeedSeeker.net*
+**Leonardo Pires** 
+*CTO of [WeedSeeker.net][0]*
 
 
 [0]: https://weedseeker.net/
