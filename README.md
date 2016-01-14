@@ -2,7 +2,7 @@ WeedSeeker Public Testing
 =========================
 
 
-Love WeedSeeker? Want to work with us? Or just hate to see buggy sites on the internet?
+Love [WeedSeeker][0]? Want to work with us? Or just hate to see buggy sites on the internet?
 
 This is the place for you.
 
@@ -54,7 +54,7 @@ See you on the pull requests tab,
 *CTO of WeedSeeker.net*
 
 
-
+[0]: https://weedseeker.net/
 [1]: http://alpha.weedseeker.net
 [2]: http://docs.seleniumhq.org/projects/webdriver/
 [3]: https://msdn.microsoft.com/en-us/library/z1zx9t92.aspx
