@@ -196,3 +196,4 @@ FakesAssemblies/
 *.opt
 
 README.html
+*.GhostDoc.xml
