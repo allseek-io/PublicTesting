@@ -34,8 +34,19 @@ namespace WeedSeeker.Web.Test.Functional
             // In the future, we should encapsulate it and use Autofac 
             // dependency injection to instantiate any browser driver.
             //
-            Driver = new ChromeDriver();
-            RootUrl = Settings.Default.RootUrl;
+
+            var options = new ChromeOptions();
+
+            if (Settings.Default.UseFiddler)
+            {
+
+                options.Proxy = new Proxy {HttpProxy = "127.0.0.1:8888"};
+
+            }
+
+            Driver = new ChromeDriver(options);
+
+            RootUrl = Settings.Default.RootUrl;            
         }
 
         /// <summary>
