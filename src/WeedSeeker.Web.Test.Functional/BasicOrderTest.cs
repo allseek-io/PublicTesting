@@ -12,7 +12,7 @@ namespace WeedSeeker.Web.Test.Functional
     public class BasicOrderTest : TestBase
     {
         [Test]
-        public void OpenHomePageAndCheckOrderSubmit()
+        public void OpenHomePageAndCheckOrderSubmitSuccess()
         {
             OpenLoginPageAndSignIn( "kllzn", "123456" );
             
@@ -50,9 +50,7 @@ namespace WeedSeeker.Web.Test.Functional
             var seeksList = Driver.FindElement( By.ClassName( "media-list" ) );
             var seeks = seeksList.FindElements( By.CssSelector( "li.media-item" ) );
 
-            var initialSeeksCount = seeks.Count;
-
-            if( initialSeeksCount > 0 )
+            if( seeks.Count > 0 )
             {
                 seeks.First().FindElement( By.ClassName( "btn-danger" ) ).Click();
 
