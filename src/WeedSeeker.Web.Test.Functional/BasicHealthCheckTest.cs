@@ -15,7 +15,7 @@ namespace WeedSeeker.Web.Test.Functional
     /// Simple health check test. It opens the site and checks if the site is up.
     /// </summary>
     [TestFixture]
-    public class BasicHealthCheckTest : BaseTest
+    public class BasicHealthCheckTest : TestBase
     {
         /// <summary>
         /// This test opens the home page and checks whether the URL is correct

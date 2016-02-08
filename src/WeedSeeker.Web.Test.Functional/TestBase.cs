@@ -9,7 +9,7 @@ using WeedSeeker.Web.Test.Functional.Properties;
 
 namespace WeedSeeker.Web.Test.Functional
 {
-    public class BaseTest
+    public class TestBase
     {
         /// <summary>
         /// Gets the instance of Selenium <see cref="IWebDriver"/>.
@@ -34,17 +34,16 @@ namespace WeedSeeker.Web.Test.Functional
             // In the future, we should encapsulate it and use Autofac 
             // dependency injection to instantiate any browser driver.
             //
-
             var options = new ChromeOptions();
 
-            if (Settings.Default.UseFiddler)
+            if( Settings.Default.UseFiddler )
             {
 
-                options.Proxy = new Proxy {HttpProxy = "127.0.0.1:8888"};
+                options.Proxy = new Proxy { HttpProxy = "127.0.0.1:8888" };
 
             }
 
-            Driver = new ChromeDriver(options);
+            Driver = new ChromeDriver( options );
 
             RootUrl = Settings.Default.RootUrl;            
         }
@@ -58,7 +57,7 @@ namespace WeedSeeker.Web.Test.Functional
             Driver.Navigate().GoToUrl( RootUrl );
         }
 
-                /// <summary>
+        /// <summary>
         /// Cleans up enviroment after each test.
         /// </summary>
         [TearDown]
@@ -68,8 +67,6 @@ namespace WeedSeeker.Web.Test.Functional
             Driver.Navigate().GoToUrl("/wp-login.php?action=logout");
         }
 
-
-
         /// <summary>
         /// Cleans up the environment after executing all tests in this fixture.
         /// </summary>
@@ -77,6 +74,22 @@ namespace WeedSeeker.Web.Test.Functional
         public void CleanUpEnvironmentAfterAllTests()
         {
             Driver.Quit();
+        }
+
+        // This method could be marked with SetUp attribute with specified parameters
+        public void OpenLoginPageAndSignIn( string username, string password )
+        {
+            var mainPageLoginButton = Driver.FindElement( By.LinkText( "Login" ) );
+            mainPageLoginButton.Click();
+
+            var userNameField = Driver.FindElement( By.Id( "username" ) );
+            userNameField.SendKeys( username );
+
+            var passwordField = Driver.FindElement( By.Id( "password" ) );
+            passwordField.SendKeys( password );
+
+            var submitButton = Driver.FindElement( By.Name( "submit" ) );
+            submitButton.Click();
         }
     }
 }
