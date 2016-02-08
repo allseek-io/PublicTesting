@@ -5,5 +5,8 @@
     <Setting Name="RootUrl" Type="System.Uri" Scope="User">
       <Value Profile="(Default)">http://alpha.weedseeker.net/</Value>
     </Setting>
+    <Setting Name="UseFiddler" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

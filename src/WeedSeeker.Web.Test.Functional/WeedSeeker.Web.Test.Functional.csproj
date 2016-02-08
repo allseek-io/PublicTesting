@@ -91,6 +91,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SeleniumWebDriverExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

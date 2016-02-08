@@ -34,5 +34,17 @@ namespace WeedSeeker.Web.Test.Functional.Properties {
                 this["RootUrl"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UseFiddler {
+            get {
+                return ((bool)(this["UseFiddler"]));
+            }
+            set {
+                this["UseFiddler"] = value;
+            }
+        }
     }
 }

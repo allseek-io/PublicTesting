@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -16,15 +18,18 @@ namespace WeedSeeker.Web.Test.Functional
         public void OpenRegisterPageAndSignUp()
         {
 
+            var randomName = CreateRandomName();
+
             // Text Fields
             var mainPageRegisterButton = Driver.FindElement( By.LinkText("Register") );
             mainPageRegisterButton.Click();
 
             var userNameField = Driver.FindElement( By.Id( "profile-user_login" ) );
-            userNameField.SendKeys( "example" );
+            userNameField.SendKeys( "devusr_" + randomName );                        
 
             var emailField = Driver.FindElement( By.Id( "profile-email" ) );
-            emailField.SendKeys( "kllzn@ya.ru" );
+            emailField.SendKeys( "development+" + randomName + "@weedseeker.net" );
+            
 
             var passwordField = Driver.FindElement( By.Id( "profile-user_pass" ) );
             passwordField.SendKeys( "123456" );
@@ -49,6 +54,9 @@ namespace WeedSeeker.Web.Test.Functional
             var checkboxAgree = Driver.FindElement( By.Name( "agree" ) );
             checkboxAgree.Click();
 
+            // Ugly workaround to make sure AngularJS model bindings happened before submitting.
+            Driver.WaitForAngularJsModelBinding();
+
             //Save Button
             var saveButton = Driver.FindElement( By.CssSelector( "button.btn-success" ) );
             saveButton.Click();
@@ -57,5 +65,11 @@ namespace WeedSeeker.Web.Test.Functional
             Assert.Null( errorBlock );
         }
 
+        private string CreateRandomName()
+        {
+            var name = DateTime.Now.ToUniversalTime().Ticks.ToString("x");
+
+            return name;
+        }
     }
 }
