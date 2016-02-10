@@ -20,6 +20,9 @@ namespace WeedSeeker.Web.Test.Functional
 
             var randomName = CreateRandomName();
 
+            Logout();
+
+
             var mainPageRegisterButton = Driver.FindElement( By.LinkText("Register") );
             mainPageRegisterButton.Click();
 

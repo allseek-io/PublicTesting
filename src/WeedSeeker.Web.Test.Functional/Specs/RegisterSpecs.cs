@@ -7,7 +7,7 @@ using WeedSeeker.Web.Test.Functional.Pages;
 namespace WeedSeeker.Web.Test.Functional.Specs
 {
     [TestFixture]
-    public class RegisterSpecs : BaseTest
+    public class RegisterSpecs : TestBase
     {
         [Test]
         public async Task Signup()
@@ -19,7 +19,7 @@ namespace WeedSeeker.Web.Test.Functional.Specs
             page.Navigate();
 
             page.Username = $"devusr_{randomName}";
-            page.Email = $"{userName}@weedseeker.net";
+            page.Email = $"development+{userName}@weedseeker.net";
             page.Password = "123456";
             page.ConfirmPassword = "123456";
             page.Country = "United States";

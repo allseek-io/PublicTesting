@@ -14,53 +14,28 @@ namespace WeedSeeker.Web.Test.Functional
         [Test]
         public void OpenHomePageAndCheckOrderSubmitSuccess()
         {
-            OpenLoginPageAndSignIn( "kllzn", "123456" );
-            
-            // Check order creation
-            var prodName = "Early Girl";
             var prodNameElement = GetSearchTerm();
             prodNameElement.SendKeys( "Chemdawg");
 
-            var amount = "1";
             var amountElement = Driver.FindElement( By.Id( "amount" ) );
-            amountElement.SendKeys( amount );
+            amountElement.SendKeys( "0.01" );
 
-            var price = "1";
             var priceElement = Driver.FindElement( By.Id( "price" ) );
-            priceElement.SendKeys( price );
+            priceElement.SendKeys( "1" );
 
             var submitButton = Driver.FindElement( By.ClassName( "btn-success" ) );
             submitButton.Click();
 
-            var alert = Driver.FindElement( By.Id( "error_message" ) );
-            Assert.AreEqual( "The entry has been added successfully.", alert.Text );
+            var loginElement = Driver.FindElement( By.Id( "username" ) );
+            var passwordElement = Driver.FindElement( By.Id( "password" ) );
+            
+            Expect(loginElement, Not.Null);
+            Expect( passwordElement, Not.Null );
         }
 
-        [Test]
-        public void OpenMySeeksAndCancelOrder()
+        private IWebElement GetSearchTerm()
         {
-            OpenLoginPageAndSignIn( "kllzn", "123456" );
-
-            var seekingDropDownButton = Driver.FindElement( By.PartialLinkText( "Seeking" ) );
-            seekingDropDownButton.Click();
-
-            var mySeeksButton = Driver.FindElement( By.PartialLinkText( "My Seeks" ) );
-            mySeeksButton.Click();
-            
-            var seeksList = Driver.FindElement( By.ClassName( "media-list" ) );
-            var seeks = seeksList.FindElements( By.CssSelector( "li.media-item" ) );
-
-            if( seeks.Count > 0 )
-            {
-                seeks.First().FindElement( By.ClassName( "btn-danger" ) ).Click();
-
-                var modal = Driver.FindElement( By.ClassName( "modal-dialog" ) );
-                modal.FindElement( By.CssSelector( "button.btn-primary" ) ).Click();
-
-                var alert = Driver.FindElement( By.Id( "error_message" ) );
-
-                Assert.AreEqual( "The entry has been removed successfully.", alert.Text );
-            }
+            return Driver.FindElement( By.Id( "search-term" ) );
         }
     }
 }

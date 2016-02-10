@@ -9,7 +9,7 @@ using WeedSeeker.Web.Test.Functional.Properties;
 
 namespace WeedSeeker.Web.Test.Functional
 {
-    public class TestBase
+    public class TestBase : AssertionHelper
     {
         /// <summary>
         /// Gets the instance of Selenium <see cref="IWebDriver"/>.
@@ -93,6 +93,15 @@ namespace WeedSeeker.Web.Test.Functional
 
             var submitButton = Driver.FindElement( By.Name( "submit" ) );
             submitButton.Click();
+        }
+
+        /// <summary>
+        /// Finds the logout button if available, and clicks it.
+        /// </summary>
+        public void Logout()
+        {
+            var logoutLink = Driver.FindElementOrDefault(By.LinkText("Logout"));
+            logoutLink?.Click();
         }
     }
 }
