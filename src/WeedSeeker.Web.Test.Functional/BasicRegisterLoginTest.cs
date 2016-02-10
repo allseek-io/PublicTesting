@@ -12,7 +12,7 @@ using OpenQA.Selenium.Support.UI;
 namespace WeedSeeker.Web.Test.Functional
 {
     [TestFixture]
-    public class BaseRegisterTest : BaseTest
+    public class BasicRegisterLoginTest : TestBase
     {   
         [Test]
         public void OpenRegisterPageAndSignUp()
@@ -20,10 +20,10 @@ namespace WeedSeeker.Web.Test.Functional
 
             var randomName = CreateRandomName();
 
-            // Text Fields
             var mainPageRegisterButton = Driver.FindElement( By.LinkText("Register") );
             mainPageRegisterButton.Click();
 
+            // Text Fields
             var userNameField = Driver.FindElement( By.Id( "profile-user_login" ) );
             userNameField.SendKeys( "devusr_" + randomName );                        
 
@@ -63,6 +63,15 @@ namespace WeedSeeker.Web.Test.Functional
 
             var errorBlock = Driver.FindElement( By.Id( "error_details" ) );
             Assert.Null( errorBlock );
+        }
+
+        [Test]
+        public void OpenLoginPageAndSignInTest()
+        {
+            OpenLoginPageAndSignIn("kllzn", "123456");
+
+            var logoutButton = Driver.FindElement( By.LinkText( "Logout" ) );
+            Assert.NotNull( logoutButton );
         }
 
         private string CreateRandomName()

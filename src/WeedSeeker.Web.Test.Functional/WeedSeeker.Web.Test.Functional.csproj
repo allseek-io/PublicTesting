@@ -81,8 +81,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseRegisterTest.cs" />
-    <Compile Include="BaseTest.cs" />
+    <Compile Include="BasicRegisterLoginTest.cs" />
+    <Compile Include="TestBase.cs" />
     <Compile Include="BasicHealthCheckTest.cs" />
     <Compile Include="BasicOrderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
