@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using NUnit.Core;
+using NUnit.Framework.Internal;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
@@ -119,7 +119,7 @@ namespace WeedSeeker.Web.Test.Functional
         /// <returns>System.Boolean.</returns>
         private static bool Log(string message)
         {
-            var logger = new Logger(TestExecutionContext.CurrentContext.CurrentTest.MethodName);
+            var logger = new Logger(TestExecutionContext.CurrentContext.CurrentTest.MethodName, InternalTraceLevel.Info, Console.Out);
 
             logger.Info(message);
 
