@@ -1,6 +1,7 @@
 WeedSeeker Public Testing
 =========================
 
+![Build Status] (https://weedseeker.visualstudio.com/DefaultCollection/_apis/public/build/definitions/c0b3091b-1887-4555-80af-7d845fc70e7e/1/badge)
 
 Love [WeedSeeker][0]? Want to work with us? Or just hate to see buggy sites on the internet?
 
