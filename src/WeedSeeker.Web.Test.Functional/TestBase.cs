@@ -34,6 +34,7 @@ namespace WeedSeeker.Web.Test.Functional
             // In the future, we should encapsulate it and use Autofac 
             // dependency injection to instantiate any browser driver.
             //
+
             var options = new ChromeOptions();
 
             if( Settings.Default.UseFiddler )
@@ -41,7 +42,7 @@ namespace WeedSeeker.Web.Test.Functional
 
                 options.Proxy = new Proxy { HttpProxy = "127.0.0.1:8888" };
 
-            }
+            }            
 
             Driver = new ChromeDriver( options );
 
@@ -66,6 +67,8 @@ namespace WeedSeeker.Web.Test.Functional
             // Right now, the only cleanup action that happens is a simple logout.
             Driver.Navigate().GoToUrl("/wp-login.php?action=logout");
         }
+
+
 
         /// <summary>
         /// Cleans up the environment after executing all tests in this fixture.

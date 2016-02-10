@@ -18,8 +18,8 @@ namespace WeedSeeker.Web.Test.Functional
             
             // Check order creation
             var prodName = "Early Girl";
-            var prodNameElement = Driver.FindElement( By.Id( "search-term" ) );
-            prodNameElement.SendKeys( prodName );
+            var prodNameElement = GetSearchTerm();
+            prodNameElement.SendKeys( "Chemdawg");
 
             var amount = "1";
             var amountElement = Driver.FindElement( By.Id( "amount" ) );

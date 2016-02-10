@@ -28,7 +28,7 @@ namespace WeedSeeker.Web.Test.Functional
             userNameField.SendKeys( "devusr_" + randomName );                        
 
             var emailField = Driver.FindElement( By.Id( "profile-email" ) );
-            emailField.SendKeys( "development+" + randomName + "@weedseeker.net" );
+            emailField.SendKeys( "development+devusr_" + randomName + "@weedseeker.net" );
             
 
             var passwordField = Driver.FindElement( By.Id( "profile-user_pass" ) );
@@ -54,15 +54,17 @@ namespace WeedSeeker.Web.Test.Functional
             var checkboxAgree = Driver.FindElement( By.Name( "agree" ) );
             checkboxAgree.Click();
 
-            // Ugly workaround to make sure AngularJS model bindings happened before submitting.
-            Driver.WaitForAngularJsModelBinding();
+            // Waits for all AngularJS requests to complete.
+            Driver.WaitForAngularJsEventsToComplete();
 
             //Save Button
             var saveButton = Driver.FindElement( By.CssSelector( "button.btn-success" ) );
             saveButton.Click();
 
-            var errorBlock = Driver.FindElement( By.Id( "error_details" ) );
-            Assert.Null( errorBlock );
+            var alertTitle = Driver.FindElement( By.CssSelector( ".alert-success h4" ) );
+            
+            Expect(alertTitle, Is.Not.Null);
+            Expect(alertTitle.Text, Contains("Account created successfully"));
         }
 
         [Test]

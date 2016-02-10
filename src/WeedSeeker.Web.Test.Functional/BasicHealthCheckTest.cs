@@ -25,7 +25,7 @@ namespace WeedSeeker.Web.Test.Functional
         {
             
             Driver.Navigate().GoToUrl(RootUrl);
-            Assert.That(Driver.Url, Is.EqualTo(RootUrl));
+            Expect(Driver.Url, EqualTo(RootUrl));
 
         }
 
@@ -37,7 +37,7 @@ namespace WeedSeeker.Web.Test.Functional
         {
 
             Driver.Navigate().GoToUrl(RootUrl);
-            Assert.That(Driver.JQuery("body.home").Count(), Is.Positive);
+            Expect(Driver.JQuery("body.home").Count(), Positive);
 
         }
 

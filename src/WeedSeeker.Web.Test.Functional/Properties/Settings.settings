@@ -6,7 +6,7 @@
       <Value Profile="(Default)">http://alpha.weedseeker.net/</Value>
     </Setting>
     <Setting Name="UseFiddler" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>
