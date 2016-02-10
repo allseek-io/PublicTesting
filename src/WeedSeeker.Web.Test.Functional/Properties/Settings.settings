@@ -8,5 +8,8 @@
     <Setting Name="UseFiddler" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="Driver" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Chrome</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

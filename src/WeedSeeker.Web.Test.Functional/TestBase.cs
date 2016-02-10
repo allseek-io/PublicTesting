@@ -5,6 +5,7 @@ using System.Text;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.IE;
 using WeedSeeker.Web.Test.Functional.Properties;
 
 namespace WeedSeeker.Web.Test.Functional
@@ -29,6 +30,37 @@ namespace WeedSeeker.Web.Test.Functional
         [OneTimeSetUp]
         public void SetUpEnvironmentBeforeAllTests()
         {
+            Driver = GetDriver();
+
+            RootUrl = Settings.Default.RootUrl;
+        }
+
+        /// <summary>
+        /// Gets the instance of the currently configured webdriver.
+        /// </summary>
+        /// <returns>IWebDriver.</returns>
+        private IWebDriver GetDriver()
+        {
+            IWebDriver result;
+
+            switch (Settings.Default.Driver)
+            {
+                case "IE":
+                    result = GetIEDriver();
+                    break;
+                default:
+                    result = GetChromeDriver();
+                    break;
+            }
+            return result;
+
+        }
+
+        /// <summary>
+        /// Gets the instance of the Web driver.
+        /// </summary>
+        private IWebDriver GetChromeDriver()
+        {
             //
             // Currently using ChromeDriver directly. 
             // In the future, we should encapsulate it and use Autofac 
@@ -37,16 +69,21 @@ namespace WeedSeeker.Web.Test.Functional
 
             var options = new ChromeOptions();
 
-            if( Settings.Default.UseFiddler )
+            if (Settings.Default.UseFiddler)
             {
+                options.Proxy = new Proxy {HttpProxy = "127.0.0.1:8888"};
+            }
 
-                options.Proxy = new Proxy { HttpProxy = "127.0.0.1:8888" };
+            return new ChromeDriver(options);
+        }
 
-            }            
+        /// <summary>
+        /// Gets the instance of the Web driver.
+        /// </summary>
+        private IWebDriver GetIEDriver()
+        {
 
-            Driver = new ChromeDriver( options );
-
-            RootUrl = Settings.Default.RootUrl;            
+            return new InternetExplorerDriver();
         }
 
         /// <summary>

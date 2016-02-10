@@ -46,5 +46,17 @@ namespace WeedSeeker.Web.Test.Functional.Properties {
                 this["UseFiddler"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Chrome")]
+        public string Driver {
+            get {
+                return ((string)(this["Driver"]));
+            }
+            set {
+                this["Driver"] = value;
+            }
+        }
     }
 }
